@@ -1,3 +1,7 @@
 export default function Visualizacao() {
-    return <h1>Visualização</h1>
+    return (
+        <section>
+            <h1>Visualização</h1>
+        </section>
+    )
 }

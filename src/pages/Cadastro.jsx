@@ -1,3 +1,7 @@
 export default function Cadastro() {
-    return <h1>Cadastro</h1>
+    return (
+        <section>
+            <h1>Cadastro</h1>
+        </section>
+    )
 }
