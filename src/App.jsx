@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Rodape from './components/Rodape'
 import Home from './pages/Home'
 import Cadastro from './pages/Cadastro'
 import Visualizacao from './pages/Visualizacao'
 import NaoEncontrada from './pages/NaoEncontrada'
 
 // Constantes de identidade: ficam fora do componente porque nunca mudam.
-const NOME_SISTEMA = 'Biblioteca Escolar'
-const TITULO_VISUALIZACAO = 'Acervo de livros'
+const NOME_SISTEMA = 'Biblioteca Escolar — Lucas'
+const TITULO_VISUALIZACAO = 'Acervo de Livros'
 
 // 3 registros iniciais. O terceiro leva o RA no campo Autor.
 const REGISTROS_INICIAIS = [
@@ -50,6 +51,8 @@ export default function App() {
           <Route path="*" element={<NaoEncontrada />} />
         </Routes>
       </main>
+      {/* Rodapé fora do <Routes>: aparece em todas as rotas */}
+      <Rodape />
     </>
   )
 }

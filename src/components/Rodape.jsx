@@ -1,4 +1,4 @@
-// Fica fora do <Routes> no App, então aparece em todas as páginas.
+// Fica fora do <Routes> no App, por isso aparece em todas as páginas.
 export default function Rodape() {
     return (
         <footer className="rodape">
