@@ -1,19 +1,38 @@
-# React + Vite
+# Biblioteca escolar — Lucas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Agenda Personalizada com React Router (SPA).
 
-Currently, two official plugins are available:
+- **Aluno:** Lucas Nunes Patracão
+- **RA:** 26178220
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Meus parâmetros
 
-## React Compiler
+Dígitos do RA: 2 6 1 7 8 2 2 0
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+| Parâmetro | Cálculo | Resultado |
+|---|---|---|
+| A | dois últimos = 20; 20 mod 20 = 0 | Biblioteca escolar (slug `livros`) |
+| B | antepenúltimo dígito = 2 | Não aceitar título repetido (sem diferenciar maiúsculas) |
+| C | 2+6+1+7+8+2+2+0 = 28; 28 mod 6 = 4 | Lista em ordem alfabética pelo título |
+| D | quarto dígito do final = 8; 8 mod 4 = 0 | Navbar horizontal no topo, links centralizados |
+| Cor | três últimos = 220; 220 mod 360 = 220 | hsl(220, 60%, 35%) |
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+## Rotas
 
-## Expanding the ESLint configuration
+| Rota | Página |
+|---|---|
+| `/` | Home |
+| `/livros/novo` | Cadastro |
+| `/livros` | Visualização |
+| `*` | Não encontrada |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como rodar
+
+    git clone https://github.com/lucaspatracao/router-26178220.git
+    cd router-26178220
+    npm install
+    npm run dev
+
+## Opcionais feitos
+
+Nenhum.
