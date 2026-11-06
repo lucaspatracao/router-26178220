@@ -338,3 +338,19 @@ code {
     text-align: center;
   }
 }
+
+/* ===== O5: campo de busca ===== */
+.busca {
+  width: 100%;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.busca:focus {
+  outline: none;
+  box-shadow: 4px 4px 0 var(--cor-principal);
+}
