@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Mantido para a injeção do seu RA via JS */
   --cor-principal: hsl(220, 60%, 35%);
-
-  /* Cores de alto contraste para o estilo Neo-Brutalista */
   --suave: color-mix(in srgb, var(--cor-principal) 15%, transparent);
   --borda: #09090b;
-  /* Preto absoluto para linhas de demarcação */
   --linha: #e4e4e7;
   --texto: #09090b;
   --texto-2: #52525b;
@@ -23,7 +19,6 @@ body {
   font: 16px/1.6 'Public Sans', system-ui, sans-serif;
   color: var(--texto);
   background-color: var(--bg-papel);
-  /* Padrão de textura gráfica */
   background-image: radial-gradient(var(--texto-2) 0.5px, transparent 0.5px);
   background-size: 24px 24px;
   -webkit-font-smoothing: antialiased;
@@ -35,7 +30,9 @@ body {
   min-height: 100vh;
 }
 
-/* Navbar: Sólida, demarcação estrutural forte */
+/* =======================================================
+   NAVBAR
+   ======================================================= */
 .navbar {
   position: sticky;
   top: 0;
@@ -84,13 +81,42 @@ body {
   box-shadow: 4px 4px 0px var(--borda);
 }
 
-/* Conteúdo: Cartão principal como um bloco editorial */
+.navbar button.link {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  border: 2px solid transparent;
+  color: var(--texto);
+  transition: all 0.15s ease-out;
+}
+
+.navbar button.link:hover {
+  border-color: var(--borda);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px #ff5252;
+  color: #ff5252;
+}
+
+/* =======================================================
+   CONTEÚDO PRINCIPAL
+   ======================================================= */
 .conteudo {
   flex: 1;
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
+  /* Aumentado para o título caber em uma linha */
   margin: 0 auto;
   padding: 3rem 1.5rem;
+  transition: max-width 0.3s ease;
+}
+
+/* Centraliza e reduz o tamanho do card quando for a tela de login */
+.conteudo:has(.form-login) {
+  max-width: 480px;
 }
 
 .conteudo>section {
@@ -104,12 +130,12 @@ body {
 h1 {
   margin: 0 0 2rem;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  /* Ajuste fino para evitar quebra de linha */
   font-weight: 800;
   line-height: 1;
   color: var(--texto);
   text-transform: uppercase;
-  /* Destaque com a cor do RA */
   text-shadow: 3px 3px 0px var(--suave);
 }
 
@@ -145,7 +171,9 @@ code {
   background: var(--bg-papel);
 }
 
-/* Formulário: Inputs com presença gráfica */
+/* =======================================================
+   FORMULÁRIOS
+   ======================================================= */
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -164,8 +192,7 @@ code {
 
 .form label:nth-child(1),
 .form label:nth-child(4),
-.erro,
-.botao {
+.erro {
   grid-column: 1 / -1;
 }
 
@@ -190,43 +217,6 @@ code {
   box-shadow: 4px 4px 0px var(--cor-principal);
 }
 
-/* Botão Tátil Neo-Brutalista */
-.botao {
-  justify-self: start;
-  margin-top: 1rem;
-  padding: 1rem 2.5rem;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: var(--borda);
-  border: 2px solid var(--borda);
-  border-radius: 4px;
-  cursor: pointer;
-  transform: translate(-4px, -4px);
-  box-shadow: 6px 6px 0px var(--cor-principal);
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.botao:hover:not(:disabled) {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px var(--cor-principal);
-}
-
-.botao:active:not(:disabled) {
-  transform: translate(0, 0);
-  box-shadow: 0 0 0 transparent;
-}
-
-.botao:disabled {
-  background: var(--texto-2);
-  transform: translate(0, 0);
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-/* Erro com visual de Alerta Técnico */
 .erro {
   margin: 0;
   padding: 1rem;
@@ -239,22 +229,43 @@ code {
   box-shadow: 4px 4px 0px var(--borda);
 }
 
-/* Lista C=4: Blocos independentes */
+/* =======================================================
+   REQUISITOS OPCIONAIS E LISTA
+   ======================================================= */
+.busca {
+  width: 100%;
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 3px solid var(--borda);
+  border-radius: 4px;
+  transition: all 0.1s ease-out;
+}
+
+.busca:focus {
+  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--cor-principal);
+}
+
 .lista {
   display: grid;
   gap: 1.5rem;
   margin: 2rem 0 0;
   padding: 0;
   list-style: none;
-  counter-reset: livro;
+  counter-reset: item_lista;
 }
 
 .lista li {
-  counter-increment: livro;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 1.5rem;
+  counter-increment: item_lista;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 1rem 1.5rem;
   padding: 1.5rem;
   background: #ffffff;
   border: 3px solid var(--borda);
@@ -263,9 +274,14 @@ code {
   transition: all 0.2s;
 }
 
+.lista li:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--cor-principal);
+}
+
 .lista li::before {
-  content: counter(livro, decimal-leading-zero);
-  grid-row: span 2;
+  flex: none;
+  content: counter(item_lista, decimal-leading-zero);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,17 +290,29 @@ code {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--borda);
+  color: #fff;
   background: var(--cor-principal);
   border: 2px solid var(--borda);
   border-radius: 4px;
-  /* Calcula a cor do texto para ser branca se a principal for escura */
-  color: #fff;
 }
 
-.lista li:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 8px 8px 0px var(--cor-principal);
+.lista .info {
+  flex: 1;
+  min-width: 12rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lista .info:hover {
+  background: transparent;
+  color: inherit;
+}
+
+.lista .info:hover .titulo {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--cor-principal);
 }
 
 .lista .titulo {
@@ -302,7 +330,156 @@ code {
   margin-top: 0.4rem;
 }
 
-/* Rodapé Técnico */
+.ficha {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+}
+
+.ficha div {
+  padding: 1rem;
+  background: #ffffff;
+  border: 3px solid var(--borda);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px var(--suave);
+}
+
+.ficha dt {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cor-principal);
+}
+
+.ficha dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.form-login {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.form-login label {
+  display: grid;
+  gap: 0.5rem;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.form-login input {
+  padding: 0.85rem 1rem;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 1rem;
+  background: #ffffff;
+  border: 3px solid var(--borda);
+  border-radius: 4px;
+  transition: all 0.1s ease-out;
+}
+
+.form-login input:focus {
+  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--cor-principal);
+}
+
+/* =======================================================
+   BOTÕES E AÇÕES
+   ======================================================= */
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.form .acoes {
+  grid-column: 1 / -1;
+  margin-top: 0;
+}
+
+.lista .acoes {
+  flex: none;
+  margin: 0;
+}
+
+.botao,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  min-height: 3.5rem;
+  padding: 0 2rem;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--borda);
+  color: #ffffff;
+  border: 2px solid var(--borda);
+  border-radius: 4px;
+  transform: translate(0, 0);
+  box-shadow: 5px 5px 0 var(--cor-principal);
+  transition: all 0.15s ease-out;
+}
+
+.botao:hover:not(:disabled),
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--cor-principal);
+  color: #ffffff;
+}
+
+.botao:active:not(:disabled),
+.btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.botao:disabled {
+  background: var(--texto-2);
+  transform: translate(0, 0);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn,
+a.btn {
+  background: var(--cor-principal);
+  box-shadow: 5px 5px 0 var(--borda);
+}
+
+.btn:hover {
+  box-shadow: 3px 3px 0 var(--borda);
+}
+
+.btn-sec,
+a.btn-sec,
+a.btn-sec:hover {
+  color: var(--texto);
+  background: #ffffff;
+}
+
+.btn-perigo {
+  background: #ff5252;
+}
+
+/* =======================================================
+   RODAPÉ E RESPONSIVO
+   ======================================================= */
 .rodape {
   margin-top: auto;
   padding: 2rem;
@@ -332,174 +509,10 @@ code {
     grid-column: auto;
   }
 
-  .botao {
+  .botao,
+  .btn {
     width: 100%;
     justify-self: stretch;
     text-align: center;
   }
-}
-
-/* ===== O5: campo de busca ===== */
-.busca {
-  width: 100%;
-  margin: 0 0 1.25rem;
-  padding: 0.75rem 1rem;
-  font: inherit;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 10px;
-}
-
-.busca:focus {
-  outline: none;
-  box-shadow: 4px 4px 0 var(--cor-principal);
-}
-
-/* ===== O2, O3, O4: lista com ações, botões e ficha de detalhes ===== */
-.lista li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1rem;
-}
-
-.lista li::before {
-  flex: none;
-}
-
-.lista .info {
-  flex: 1;
-  min-width: 12rem;
-  color: inherit;
-  text-decoration: none;
-}
-
-.lista .info:hover .titulo {
-  text-decoration: underline;
-}
-
-.acoes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.5rem;
-}
-
-.lista .acoes {
-  flex: none;
-  margin: 0;
-}
-
-.form .acoes {
-  grid-column: 1 / -1;
-  margin-top: 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  background: var(--cor-principal);
-  border: 2px solid #000;
-  border-radius: 8px;
-  box-shadow: 3px 3px 0 #000;
-  transition: transform 0.1s, box-shadow 0.1s;
-}
-
-.btn,
-a.btn,
-a.btn:hover {
-  color: #fff;
-}
-
-.btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 #000;
-}
-
-.btn:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 #000;
-}
-
-.btn-sec,
-a.btn-sec,
-a.btn-sec:hover {
-  color: #000;
-  background: #fff;
-}
-
-.btn-perigo {
-  background: #c62828;
-}
-
-.ficha {
-  display: grid;
-  gap: 0.75rem;
-  margin: 1.25rem 0 0;
-}
-
-.ficha div {
-  padding: 0.75rem 1rem;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 10px;
-}
-
-.ficha dt {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--cor-principal);
-}
-
-.ficha dd {
-  margin: 0.15rem 0 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-}
-
-/* ===== O1: tela de login e botão Sair ===== */
-.form-login {
-  display: grid;
-  gap: 1rem;
-  max-width: 420px;
-  margin-top: 1.25rem;
-}
-
-.form-login label {
-  display: grid;
-  gap: 0.35rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.form-login input {
-  padding: 0.75rem 1rem;
-  font: inherit;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 10px;
-}
-
-.form-login input:focus {
-  outline: none;
-  box-shadow: 4px 4px 0 var(--cor-principal);
-}
-
-.navbar button.link {
-  font: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
 }
