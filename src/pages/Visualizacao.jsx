@@ -4,10 +4,17 @@ import { Link } from 'react-router-dom'
 // Props que chegam do App:
 //  - title: constante com o título da página
 //  - registros: estado com todos os livros
-export default function Visualizacao({ title, registros }) {
-    // Estado só desta página: o que a pessoa digita na busca (O5).
-    // Não precisa ir para o App porque mais ninguém usa esse texto.
+//  - removerRegistro: função criada no App que apaga um livro pelo id
+export default function Visualizacao({ title, registros, removerRegistro }) {
+    // Estado só desta página: o texto da busca (O5)
     const [busca, setBusca] = useState('')
+
+    // Pergunto antes de apagar, para não remover sem querer (O3)
+    function handleRemover(livro) {
+        if (window.confirm(`Remover "${livro.titulo}"?`)) {
+            removerRegistro(livro.id)
+        }
+    }
 
     // Sem nenhum livro cadastrado: mostro um aviso com link para o cadastro
     if (registros.length === 0) {
@@ -22,9 +29,9 @@ export default function Visualizacao({ title, registros }) {
         )
     }
 
-    // 1) filter: fica só com os livros cujo título contém o texto da busca
-    // 2) sort: coloco em ordem alfabética pelo título (C=4)
-    // O filter já devolve um array novo, então o sort não mexe no estado do App.
+    // filter: só os livros que têm o texto da busca no título
+    // sort: ordem alfabética pelo título (C=4). O filter já cria um array novo,
+    // então o sort não mexe no estado do App.
     const termo = busca.trim().toLowerCase()
     const exibidos = registros
         .filter((r) => r.titulo.toLowerCase().includes(termo))
@@ -49,8 +56,17 @@ export default function Visualizacao({ title, registros }) {
                     {exibidos.map((r) => (
                         // a key usa o id para o React saber qual item é qual
                         <li key={r.id}>
-                            <div className="titulo">{r.titulo}</div>
-                            <div className="detalhe">{r.autor} · {r.ano} · {r.genero}</div>
+                            {/* O2: clicar no livro abre a página de detalhes dele */}
+                            <Link className="info" to={`/livros/${r.id}`}>
+                                <div className="titulo">{r.titulo}</div>
+                                <div className="detalhe">{r.autor} · {r.ano} · {r.genero}</div>
+                            </Link>
+                            <div className="acoes">
+                                <Link className="btn btn-sec" to={`/livros/${r.id}/editar`}>Editar</Link>
+                                <button className="btn btn-perigo" onClick={() => handleRemover(r)}>
+                                    Remover
+                                </button>
+                            </div>
                         </li>
                     ))}
                 </ul>
