@@ -8,7 +8,7 @@ import Visualizacao from './pages/Visualizacao'
 import NaoEncontrada from './pages/NaoEncontrada'
 
 // Constantes de identidade: ficam fora do componente porque nunca mudam.
-const NOME_SISTEMA = 'Biblioteca Escolar'
+const NOME_SISTEMA = 'Biblioteca Escolar — Lucas'
 const TITULO_VISUALIZACAO = 'Acervo de Livros'
 
 // 3 registros iniciais. O terceiro leva o RA no campo Autor.
