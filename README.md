@@ -8,7 +8,7 @@
 ![React Router](https://img.shields.io/badge/React_Router-Rotas-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-Build-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-[![Site Publicado](https://img.shields.io/badge/Site_Publicado-Abrir-2EA44F?style=for-the-badge)](COLE_AQUI_O_LINK_DA_VERCEL)
+[![Site Publicado](https://img.shields.io/badge/Site_Publicado-Abrir-2EA44F?style=for-the-badge)](https://router-26178220.vercel.app)
 [![Vídeo no Drive](https://img.shields.io/badge/V%C3%ADdeo_no_Google_Drive-Assistir-4285F4?style=for-the-badge&logo=googledrive&logoColor=white)](COLE_AQUI_O_LINK_DO_DRIVE)
 
 </div>
