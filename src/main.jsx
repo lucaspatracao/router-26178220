@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 
-// O BrowserRouter envolve o App inteiro: todo componente dentro dele
-// passa a poder usar rotas, links e hooks de navegação.
+// Coloquei o BrowserRouter aqui, em volta do App, para que todas as páginas
+// consigam usar rotas, links e os hooks de navegação (useNavigate, useLocation...).
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
